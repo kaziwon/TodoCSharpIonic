@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        TO DO LIST
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-list>
+      <ion-item-sliding *ngFor="let tarefa of tarefas">
+          
+        <ion-item (click)="abrirTarefa(tarefa.id)" >
+          
+           
+          
+           <p *ngIf=" tarefa.dataConclusao != null" >  <s> <h2>{{ tarefa.titulo }}</h2></s>
+           <h2 *ngIf=" tarefa.dataConclusao == null" >{{ tarefa.titulo }}</h2>
+           
+        </ion-item>
+  
+        <ion-item-options side="left">
+          <button ion-button color="primary" (click)="abrirEditarTarefa(tarefa.id)">
+              <ion-icon name="create"></ion-icon>
+              Editar
+            </button>
+          <button ion-button color="danger" (click)="deletarTarefa(tarefa)">
+              <ion-icon name="trash"></ion-icon>
+              Excluir
+            </button>
+
+            <button ion-button color="secondary" (click)="finalizarTarefas(tarefa.id)" >
+                <ion-icon name="checkmark"></ion-icon>
+               Finalizar
+              </button>
+           
+        </ion-item-options>
+      </ion-item-sliding>
+  
+    </ion-list>
+  
+  
+    <ion-fab right bottom>
+      <button ion-fab color="light" (click)="abrirCriarUsuario()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+  </ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista de tarefas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h1 text-center>Cadastrar tarefa</h1>
+
+  <ion-list>
+
+
+    <ion-item>
+      <ion-label stacked>Titulo</ion-label>
+      <ion-input type="text" name="titulo" [(ngModel)]="model.titulo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Descrição</ion-label>
+        <ion-input type="text" name="descricao" [(ngModel)]="model.descricao"></ion-input>
+      </ion-item>
+
+  </ion-list>
+
+
+  <button ion-button block (click)="CreateTarefa()" color="primary">Cadastrar tarefa</button>
+</ion-content>
